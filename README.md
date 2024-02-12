@@ -1,5 +1,5 @@
 Diseño avanzado de API Rest
 
-Grupo XXX
-Ender Torres
+Grupo 5 - 
+Ender Torres - 
 Mónica Ayala
