@@ -1,8 +1,8 @@
-const pool = require ('../config/db');
-const format = require ('pg-format');
-
+const pool = require('../config/db');
+const format = require('pg-format');
 
 // CONSULTAS CON ORDENAMIENTO Y LIMITES
+
 const obtenerDatosOrdenamiento = async ({limit = 3, order_by = "stock_ASC", page = 1}) => {
     const [campo,direccion] = order_by.split("_");
     const offset = (page - 1) * limit;
@@ -44,21 +44,7 @@ const filtro = async ({ precio_min, precio_max, categoria, metal }) => {
     return rows;
 };
 
-// const hateoas = (joyas) => {
-//     const results = joyas.map((joya) => {
-//         return {
-//             id: joya.id,
-//             name: joya.name,
-//             href: `http://localhost:3000/joyas/${joya.id}`,
-//         }
-//     }).slice(0, 5);
-//     const total = joyas.length;
-//     const hateoas = {
-//         total,
-//         results
-//     }
-//     return hateoas
-// }
+
 
 const HATEOAS = (joyas) => {
     const results = joyas.map((joya) => {
@@ -78,7 +64,9 @@ const HATEOAS = (joyas) => {
     
 
 module.exports = {
+
     obtenerDatosOrdenamiento,
     filtro,
     HATEOAS
 }
+
