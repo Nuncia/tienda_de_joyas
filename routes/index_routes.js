@@ -35,34 +35,5 @@ router.get('/joyas/filtros', async (req, res) => {
    }
 });
 
-
-const validarFiltros = (precio_max, precio_min, categoria, metal) => {
-   const precioMax = Number.parseInt(precio_max);
-   const precioMin = Number.parseInt(precio_min);
-   console.log(precioMax, precioMin, categoria, metal);
-   if (
-      typeof precioMax === 'number' &&
-      typeof precioMin === 'number' &&
-      typeof categoria === 'string' &&
-      typeof metal === 'string'
-   ) {
-      const respuesta = {
-         status: 'Datos validos',
-         msg: 'Tipos de datos validos',
-         datos: { precioMax, precioMin, categoria, metal },
-         error: false,
-      };
-      return respuesta;
-   } else {
-      const respuesta = {
-         status: 'Bad request',
-         msg: 'Tipo de dato incorrecto ',
-         datos: [],
-         error: true,
-      };
-      return respuesta;
-   }
-};
-
 module.exports = router;
 
