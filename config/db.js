@@ -5,7 +5,7 @@ const { HOST, USER, PASSWORD, DATABASE } = process.env;
 const pool = new Pool({
    host: HOST,
    user: USER,
-   password: '',
+   password: PASSWORD,
    database: DATABASE,
    port: 5433,
    allowExitOnIdle: true,
