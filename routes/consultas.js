@@ -71,14 +71,14 @@ const HATEOAS = (joyas) => {
 };
 
 const obtenerJoyasFiltradas = async ({
-   precio_max = 100000,
-   precio_min = 1000,
-   categoria = 'aros',
-   metal = 'plata',
+   precio_max,
+   precio_min,
+   categoria,
+   metal,
 }) => {
    let filtros = [];
    const values = [];
-   console.log(precio_max, precio_min, categoria, metal);
+
    const agregarFiltros = (campo, comparador, valor) => {
       values.push(valor);
       let { length } = filtros;
