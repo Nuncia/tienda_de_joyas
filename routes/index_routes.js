@@ -23,8 +23,7 @@ router.get('/joyas/filtros', async (req, res) => {
    try {
       const queryString = req.query;
       const rows = await obtenerJoyasFiltradas(queryString);
-      const hateoas = await HATEOAS(rows);
-      res.json(hateoas);
+      res.json(rows);
    } catch (error) {
       res.status(500).json({ error: `Error interno: ${error}` });
    }
