@@ -117,31 +117,49 @@ const obtenerJoyasFiltradas = async ({
       throw new Error(error);
    }
 };
+
 const validarFiltros = (precio_max, precio_min, categoria, metal) => {
    const precioMax = Number.parseInt(precio_max);
    const precioMin = Number.parseInt(precio_min);
    console.log(precioMax, precioMin, categoria, metal);
    if (
-      typeof precioMax === 'number' &&
-      typeof precioMin === 'number' &&
-      typeof categoria === 'string' &&
-      typeof metal === 'string'
+      isNaN(precioMax) ||
+      typeof precioMax === 'undefined' ||
+      isNaN(precioMin) ||
+      typeof precioMin === 'undefined' ||
+      typeof categoria === 'undefined' ||
+      typeof metal === 'undefined'
    ) {
       const respuesta = {
-         status: 'Datos validos',
-         msg: 'Tipos de datos validos',
-         datos: { precioMax, precioMin, categoria, metal },
-         error: false,
-      };
-      return respuesta;
-   } else {
-      const respuesta = {
-         status: 'Bad request',
-         msg: 'Tipo de dato incorrecto ',
+         status: 'Datos incompletos',
+         msg: 'Todos los campos son requeridos',
          datos: [],
          error: true,
       };
       return respuesta;
+   } else {
+      if (
+         typeof precioMax === 'number' &&
+         typeof precioMin === 'number' &&
+         typeof categoria === 'string' &&
+         typeof metal === 'string'
+      ) {
+         const respuesta = {
+            status: 'Datos validos',
+            msg: 'Tipos de datos validos',
+            datos: { precioMax, precioMin, categoria, metal },
+            error: false,
+         };
+         return respuesta;
+      } else {
+         const respuesta = {
+            status: 'Bad request',
+            msg: 'Tipo de dato incorrecto ',
+            datos: [],
+            error: true,
+         };
+         return respuesta;
+      }
    }
 };
 
