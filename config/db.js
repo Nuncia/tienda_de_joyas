@@ -7,6 +7,7 @@ const pool = new Pool({
    user: USER,
    password: PASSWORD,
    database: DATABASE,
+   port: 5433,
    allowExitOnIdle: true,
 });
 

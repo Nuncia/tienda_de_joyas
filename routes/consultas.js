@@ -2,7 +2,6 @@ const pool = require('../config/db');
 const format = require('pg-format');
 
 // CONSULTAS CON ORDENAMIENTO Y LIMITES
-
 const obtenerDatosOrdenamiento = async ({
    limit = 3,
    order_by = 'stock_ASC',
